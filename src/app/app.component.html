@@ -1,9 +1,13 @@
 <header class="app-header">
-  <h1>{{ title }}</h1>
+  <div class="app-container">
+    <h1>{{ title }}</h1>
+  </div>
 </header>
 
-<div class="app-content">
-  <app-heroes></app-heroes>
-  <dog-card></dog-card>
+<div class="app-container">
+  <div class="app-content">
+    <app-heroes></app-heroes>
+    <dog-card></dog-card>
+  </div>
 </div>
 <router-outlet></router-outlet>
