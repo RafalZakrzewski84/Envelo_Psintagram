@@ -6,7 +6,7 @@ import { MatSelectModule } from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeroesComponent } from './heros/heroes.component';
+// import { HeroesComponent } from './heros/heroes.component';
 import { DogCard } from './dogCard/dogCard.component'
 import { DogSelect } from './dogSelect/dogSelect.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,7 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent,
+    // HeroesComponent,
     DogCard,
     DogSelect
   ],
