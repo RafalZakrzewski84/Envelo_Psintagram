@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from '../services/post.service';
+
 
 // /** @title Select with reset option */
 @Component({
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: './dogSelect.component.html',
 })
 export class DogSelect implements OnInit {
+    posts: any;
+    breeds: string[] = []
     states: string[] = [
         'Alabama',
         'Alaska',
@@ -58,8 +62,22 @@ export class DogSelect implements OnInit {
         'Wisconsin',
         'Wyoming',
     ];
-    constructor() { }
+    constructor(private service: PostService) { }
 
     ngOnInit(): void {
+        this.service.getPosts()
+            .subscribe(response => {
+                this.posts = response;
+                for (let breed in this.posts.message) {
+                    if (this.posts.message[breed].length !== 0) {
+                        for (let subBreed of this.posts.message[breed]) {
+                            this.breeds.push(breed + '-' + subBreed)
+                        }
+                    } else {
+                        this.breeds.push(breed)
+                    }
+                }
+                console.log(this.breeds)
+            });
     }
 }
