@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PostService } from '../services/post.service';
 
 
@@ -8,60 +8,11 @@ import { PostService } from '../services/post.service';
     templateUrl: './dogSelect.component.html',
 })
 export class DogSelect implements OnInit {
+    @Input() selectedBreed?: String;
+
     posts: any;
     breeds: string[] = []
-    states: string[] = [
-        'Alabama',
-        'Alaska',
-        'Arizona',
-        'Arkansas',
-        'California',
-        'Colorado',
-        'Connecticut',
-        'Delaware',
-        'Florida',
-        'Georgia',
-        'Hawaii',
-        'Idaho',
-        'Illinois',
-        'Indiana',
-        'Iowa',
-        'Kansas',
-        'Kentucky',
-        'Louisiana',
-        'Maine',
-        'Maryland',
-        'Massachusetts',
-        'Michigan',
-        'Minnesota',
-        'Mississippi',
-        'Missouri',
-        'Montana',
-        'Nebraska',
-        'Nevada',
-        'New Hampshire',
-        'New Jersey',
-        'New Mexico',
-        'New York',
-        'North Carolina',
-        'North Dakota',
-        'Ohio',
-        'Oklahoma',
-        'Oregon',
-        'Pennsylvania',
-        'Rhode Island',
-        'South Carolina',
-        'South Dakota',
-        'Tennessee',
-        'Texas',
-        'Utah',
-        'Vermont',
-        'Virginia',
-        'Washington',
-        'West Virginia',
-        'Wisconsin',
-        'Wyoming',
-    ];
+
     constructor(private service: PostService) { }
 
     ngOnInit(): void {
@@ -77,7 +28,7 @@ export class DogSelect implements OnInit {
                         this.breeds.push(breed)
                     }
                 }
-                console.log(this.breeds)
             });
     }
+
 }
